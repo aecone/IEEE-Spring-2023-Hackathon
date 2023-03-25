@@ -1,4 +1,4 @@
-# bot.py
+# bot.py wutttaaaaa
 import discord
 from discord.ext import commands
 
