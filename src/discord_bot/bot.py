@@ -1,26 +1,16 @@
 # bot.py
-import os
-
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv
 
-bot = commands.Bot(command_prefix="!")
-@bot.command() 
+bot = commands.Bot(command_prefix = "!", intents=discord.Intents.all())
+
+@bot.event
+async def on_ready():
+    print("The bot is now online!")
+
+@bot.command()
 async def hello(ctx):
     username = ctx.message.author.name
-    await ctx.send("Hello there " + username)
+    await ctx.send("Hello " + username)
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
-
-client = discord.Client()
-
-
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
-    
-
-
-client.run(TOKEN)
+bot.run("MTA4OTIxMjc1NjU0NjMwNjE3OQ.GriBA-.CzaUhc6g3crX3uH-3QtkG9UbuMBWHXmkfRi2X0")
